@@ -9,6 +9,9 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+const cors = require('cors');
+app.use(cors());
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -38,4 +41,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+const port = process.env.PORT || 9090;
+app.listen(port, function () {
+  console.log('Express server listening on port ' + port);
+});

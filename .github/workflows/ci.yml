@@ -28,6 +28,7 @@ jobs:
     - run: npm ci
 
   test:
+    needs: build
     runs-on: ubuntu-latest
 
     strategy:
@@ -43,6 +44,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
+    - run: npm test
   
   security:
     needs: test

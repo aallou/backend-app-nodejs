@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  selector:
+    matchLabels:
+      name: backend
+  template:
+    metadata:
+      labels:
+        name: backend
+    spec:
+      containers:
+        - name: app
+          image: aallou/backend-app-nodejs:v1
+          ports:
+            - containerPort: 9090
+          livenessProbe:
+            exec:
+              command:
+              - cat
+              - /app/iam-live.txt
+            initialDelaySeconds: 10
+            periodSeconds: 5  

@@ -3,8 +3,11 @@
 1. clone & test
 git@github.com:aallou/backend-app-nodejs.git
 
-2. Pour avoir un cluster k8s prêt à l'emploi : 
-- go to https://killercoda.com/kubernetes/scenario/a-playground
+2. Pour avoir un cluster k8s prêt à l'emploi :
+go to https://killercoda.com/kubernetes/scenario/a-playground
+
+3. Les alias pour les commandes
+https://github.com/ahmetb/kubectl-aliases
 
 # commandes
 

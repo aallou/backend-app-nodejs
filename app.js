@@ -1,9 +1,6 @@
-var dd_options = {
-  'response_code':true,
-  'tags': ['app:backend']
-}
-
-var connect_datadog = require('connect-datadog')(dd_options);
+const tracer = require('dd-trace').init({
+  logInjection: true
+});
 
 var createError = require('http-errors');
 var express = require('express');
@@ -15,8 +12,6 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
-
-app.use(connect_datadog);
 
 const cors = require('cors');
 app.use(cors());

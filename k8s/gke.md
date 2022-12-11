@@ -97,7 +97,7 @@ kubectl create deployment backend --image=aallou/backend-app-nodejs:v1
 kubectl port-forward backend-65c76fd744-75l9c 9090:9090
 ```
 
-Infos abour ingress :
+Infos about ingress :
 The Ingress routes the traffic based on paths, domains, headers, etc.
 A convenient feature from the Google Cloud Platform is that when you deploy a GKE cluster, the Ingress controller is automatically deployed.
 Also, when you create an Ingress object, the GKE Ingress controller creates a Google Cloud HTTP(S) Load Balancer and configures it according to the information in the Ingress and its associated Services.
@@ -143,4 +143,10 @@ ab -n 10000 -c 100 <ip or url>/users
 k get pods -w
 k top pod <pod> --containers
 k get hpa -w
+```
+
+## clean
+To delete the cluster :
+```
+gcloud container clusters delete demo1-cluster
 ```

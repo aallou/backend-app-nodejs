@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  labels:
+    tags.datadoghq.com/env: "dev"
+    tags.datadoghq.com/service: "backend"
+    tags.datadoghq.com/version: "v4"
+spec:
+  selector:
+    matchLabels:
+      name: backend
+  replicas: 3      
+  template:
+    metadata:
+      labels:
+        name: backend
+        admission.datadoghq.com/enabled: "true"
+        admission.datadoghq.com/js-lib.version: "v3.9.0"
+        tags.datadoghq.com/env: "dev"
+        tags.datadoghq.com/service: "backend"
+        tags.datadoghq.com/version: "v4"
+    spec:
+      containers:
+        - name: app
+          image: aallou/backend-app-nodejs:v3
+          ports:
+            - containerPort: 9090
